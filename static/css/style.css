@@ -1,0 +1,745 @@
+/* =========================
+   FreelanceHub Global CSS
+   ========================= */
+
+body {
+    background-color: #f5f7fb;
+    font-family: Arial, sans-serif;
+    color: #212529;
+}
+
+
+/* =========================
+   Navbar
+   ========================= */
+
+.navbar {
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================
+   Buttons
+   ========================= */
+
+.btn {
+    border-radius: 8px;
+    padding: 9px 18px;
+    transition: 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   Cards
+   ========================= */
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/* Only interactive cards get hover movement */
+
+.project-card,
+.feature-card,
+.process-card,
+.stat-card,
+.hero-card {
+    transition: 0.3s ease;
+}
+
+
+/* =========================
+   Headings
+   ========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 600;
+}
+
+
+/* =========================
+   Project Cards
+   ========================= */
+
+.project-card {
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================
+   Status Badges
+   ========================= */
+
+.badge {
+    padding: 7px 10px;
+    border-radius: 6px;
+}
+
+
+/* =========================
+   Home Page
+   ========================= */
+
+.hero-section {
+    padding: 70px 0;
+}
+
+.hero-section h1 {
+    line-height: 1.2;
+}
+
+.hero-card {
+    background: white;
+    padding: 25px;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+}
+
+.hero-icon {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 18px;
+    display: block;
+    margin: auto;
+}
+
+
+/* =========================
+   Feature Cards
+   ========================= */
+
+.feature-card {
+    border: none !important;
+    border-radius: 16px !important;
+    background: white !important;
+    padding: 10px;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+
+/* Find Projects */
+
+.feature-project {
+    border-top: 5px solid #0d6efd !important;
+}
+
+.feature-project .feature-icon {
+    color: #0d6efd !important;
+}
+
+.feature-project:hover {
+    box-shadow: 0 15px 35px rgba(13, 110, 253, 0.25) !important;
+}
+
+
+/* Hire Freelancers */
+
+.feature-hire {
+    border-top: 5px solid #198754 !important;
+}
+
+.feature-hire .feature-icon {
+    color: #198754 !important;
+}
+
+.feature-hire:hover {
+    box-shadow: 0 15px 35px rgba(25, 135, 84, 0.25) !important;
+}
+
+
+/* Grow Career */
+
+.feature-grow {
+    border-top: 5px solid #6f42c1 !important;
+}
+
+.feature-grow .feature-icon {
+    color: #6f42c1 !important;
+}
+
+.feature-grow:hover {
+    box-shadow: 0 15px 35px rgba(111, 66, 193, 0.25) !important;
+}
+
+
+/* Feature Icon Hover */
+
+.feature-icon {
+    font-size: 40px;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+
+/* =========================
+   How It Works
+   ========================= */
+
+.process-card {
+    border: none;
+    border-radius: 18px;
+}
+
+.process-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.process-number {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #0d6efd;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.process-icon {
+    font-size: 42px;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   Statistics
+   ========================= */
+
+.stats-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 35px;
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+.stat-card h2 {
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   Forms
+   ========================= */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+
+/* =========================
+   Responsive Design
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding: 40px 0;
+    }
+
+    .navbar-brand {
+        font-size: 21px;
+    }
+
+    .hero-image {
+        margin-top: 25px;
+    }
+
+}
+/* =========================
+   Hover Effects
+   ========================= */
+
+.project-card,
+.feature-card,
+.process-card,
+.stat-card,
+.hero-card,
+.btn {
+    transition: all 0.3s ease;
+}
+
+
+/* Project Cards */
+
+.project-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Feature Cards */
+
+.feature-card:hover {
+    transform: translateY(-10px) !important;
+}
+
+
+/* Process Cards */
+
+.process-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+}
+
+
+/* Statistics */
+
+.stat-card:hover {
+    transform: translateY(-5px) !important;
+}
+
+
+/* Hero */
+
+.hero-card:hover {
+    transform: translateY(-5px) !important;
+}
+
+
+/* Buttons */
+
+.btn:hover {
+    transform: translateY(-2px) !important;
+}
+/* =========================
+   Footer
+   ========================= */
+
+.footer {
+    background: #111827;
+    color: white;
+}
+
+.footer-brand {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-brand i {
+    margin-right: 8px;
+}
+
+.footer h5 {
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.footer-text {
+    color: #cbd5e1;
+    max-width: 420px;
+    line-height: 1.7;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.footer-contact {
+    color: #cbd5e1;
+    margin-bottom: 12px;
+}
+
+.footer-contact i {
+    margin-right: 8px;
+}
+
+
+/* Social Icons */
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #475569;
+    border-radius: 50%;
+
+    color: white;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    background: white;
+    color: #111827;
+    border-color: white;
+}
+
+.footer hr {
+    border-color: #374151;
+    margin: 10px 0 20px;
+}
+
+.footer-bottom {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* ============================
+   FreelanceHub Gradient Hero
+   ============================ */
+
+.hero-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 480px;
+    padding: 85px 55px;
+    border-radius: 24px;
+
+    display: flex;
+    align-items: center;
+
+    background: linear-gradient(
+        120deg,
+        #0b112b 0%,
+        #102d63 48%,
+        #0878f9 100%
+    );
+
+    color: #ffffff;
+    box-shadow: 0 20px 55px rgba(15, 35, 80, 0.22);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 9px 15px;
+    margin-bottom: 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.09);
+
+    color: #dbeafe;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.hero-section h1 {
+    margin-bottom: 22px;
+    color: #ffffff;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+.hero-section h1 span {
+    color: #93c5fd;
+}
+
+.hero-description {
+    max-width: 590px;
+    margin-bottom: 30px;
+
+    color: #e2e8f0;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.hero-btn-primary {
+    padding: 13px 23px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #123875;
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+.hero-btn-primary:hover {
+    background: #dbeafe;
+    color: #0b2455;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hero-btn-secondary {
+    padding: 13px 23px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 10px;
+
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.hero-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+.hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 28px;
+
+    color: #dbeafe;
+    font-size: 13px;
+}
+
+.hero-trust i {
+    margin-right: 6px;
+    color: #93c5fd;
+}
+
+.hero-decoration {
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-decoration-one {
+    width: 320px;
+    height: 320px;
+    top: -140px;
+    right: 7%;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 0 0 35px rgba(255, 255, 255, 0.035),
+        0 0 0 70px rgba(255, 255, 255, 0.025);
+}
+
+.hero-decoration-two {
+    width: 220px;
+    height: 220px;
+    right: 20%;
+    bottom: -160px;
+
+    background: rgba(96, 165, 250, 0.22);
+    filter: blur(8px);
+}
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding: 55px 25px;
+        border-radius: 18px;
+    }
+
+    .hero-section h1 {
+        font-size: 39px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-trust {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-decoration-one {
+        right: -200px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero-section h1 {
+        font-size: 33px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}
+/* Keep the hero text and image side by side */
+.hero-section .row {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section .hero-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 10px;
+}
+
+.hero-section .hero-image {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Keep decorative shapes behind the content */
+.hero-decoration {
+    z-index: 0;
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        padding: 45px 25px;
+    }
+
+    .hero-section .col-md-5 {
+        margin-top: 30px;
+    }
+
+    .hero-section .hero-image {
+        max-width: 300px;
+    }
+}
+/* Mobile responsive design */
+@media (max-width: 767px) {
+
+    .hero-section {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .hero-section .col-md-7,
+    .hero-section .col-md-5 {
+        width: 100%;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .hero-section .hero-image {
+        max-width: 280px;
+        width: 100%;
+        height: auto;
+    }
+
+    .features-section,
+    .how-it-works-section,
+    .statistics-section {
+        padding: 30px 15px;
+    }
+
+}

@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Review Submitted Work | FreelanceHub
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Header -->
+
+    <div class="text-center mb-4">
+
+        <div class="mb-3">
+
+            <i class="bi bi-clipboard-check-fill"
+               style="font-size: 50px; color: #0d6efd;">
+            </i>
+
+        </div>
+
+        <h2 class="fw-bold">
+            Review Submitted Work
+        </h2>
+
+        <p class="text-muted">
+            Review the work submitted by the freelancer.
+        </p>
+
+    </div>
+
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8">
+
+            <!-- Project Details -->
+
+            <div class="card shadow-sm border-0 mb-4">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold mb-3">
+
+                        <i class="bi bi-folder-fill me-2"></i>
+                        Project Details
+
+                    </h5>
+
+                    <h3 class="fw-bold">
+                        {{ project.title }}
+                    </h3>
+
+                    <p class="text-muted">
+                        {{ project.description }}
+                    </p>
+
+                    <div class="row mt-3">
+
+                        <div class="col-md-4">
+
+                            <small class="text-muted">
+                                Budget
+                            </small>
+
+                            <h5 class="fw-bold text-success">
+                                ₹{{ project.budget }}
+                            </h5>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <small class="text-muted">
+                                Deadline
+                            </small>
+
+                            <h5 class="fw-bold">
+                                {{ project.deadline }}
+                            </h5>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <small class="text-muted">
+                                Submitted
+                            </small>
+
+                            <h5 class="fw-bold">
+                                {{ submission.submitted_at|date:"M d, Y" }}
+                            </h5>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Freelancer -->
+
+            <div class="card shadow-sm border-0 mb-4">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold mb-3">
+
+                        <i class="bi bi-person-fill me-2"></i>
+                        Freelancer
+
+                    </h5>
+
+                    <h4>
+                        {{ submission.freelancer.username }}
+                    </h4>
+
+                    <p class="text-muted mb-0">
+
+                        {{ submission.freelancer.email }}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Delivery Details -->
+
+            <div class="card shadow-sm border-0 mb-4">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold mb-4">
+
+                        <i class="bi bi-send-check-fill me-2"></i>
+                        Delivery Details
+
+                    </h5>
+
+
+                    <div class="mb-4">
+
+                        <label class="fw-semibold">
+                            Delivery Message
+                        </label>
+
+                        <div class="p-3 bg-light rounded mt-2">
+
+                            {{ submission.delivery_message }}
+
+                        </div>
+
+                    </div>
+
+
+                    {% if submission.github_url %}
+
+                        <div class="mb-4">
+
+                            <label class="fw-semibold">
+                                GitHub Repository
+                            </label>
+
+                            <div class="mt-2">
+
+                                <a href="{{ submission.github_url }}"
+                                   target="_blank"
+                                   class="btn btn-dark">
+
+                                    <i class="bi bi-github me-1"></i>
+                                    View GitHub Repository
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    {% endif %}
+
+
+                    {% if submission.live_url %}
+
+                        <div class="mb-4">
+
+                            <label class="fw-semibold">
+                                Live Project
+                            </label>
+
+                            <div class="mt-2">
+
+                                <a href="{{ submission.live_url }}"
+                                   target="_blank"
+                                   class="btn btn-success">
+
+                                    <i class="bi bi-globe2 me-1"></i>
+                                    View Live Project
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+
+            <div class="card shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+                    <h5 class="fw-bold mb-3">
+                        Review Decision
+                    </h5>
+
+                    <p class="text-muted">
+                        Check the submitted work before accepting the project.
+                    </p>
+
+                    <div class="d-flex gap-2">
+
+                        <button class="btn btn-outline-danger">
+                            <i class="bi bi-arrow-repeat me-1"></i>
+                            Request Changes
+                        </button>
+
+                      <form method="POST"
+      action="{% url 'complete_project' project.id %}">
+
+    {% csrf_token %}
+
+    <button type="submit"
+            class="btn btn-success">
+
+        <i class="bi bi-check-circle-fill me-1"></i>
+        Accept Work
+
+    </button>
+
+</form>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

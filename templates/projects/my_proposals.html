@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Proposals - FreelanceHub
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+        <h2 class="fw-bold">
+
+            <i class="bi bi-file-earmark-text"></i>
+            My Proposals
+
+        </h2>
+
+        <p class="text-muted mb-0">
+
+            Track the proposals you have submitted.
+
+        </p>
+
+    </div>
+
+    <a href="{% url 'freelancer_dashboard' %}"
+       class="btn btn-outline-secondary">
+
+        <i class="bi bi-arrow-left"></i>
+        Back to Dashboard
+
+    </a>
+
+</div>
+
+
+<!-- Proposals -->
+
+<div class="row g-4">
+
+    {% for proposal in proposals %}
+
+        <div class="col-md-6">
+
+            <div class="card feature-card shadow-sm border-0">
+
+                <div class="card-body p-4">
+
+                    <!-- Project Title -->
+
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+
+                        <h4 class="fw-bold mb-0">
+
+                            <i class="bi bi-briefcase"></i>
+                            {{ proposal.project.title }}
+
+                        </h4>
+
+
+                        <!-- Status -->
+
+                        {% if proposal.project.status == 'COMPLETED' %}
+
+                            <span class="badge bg-secondary">
+
+                                <i class="bi bi-check2-all"></i>
+                                Completed
+
+                            </span>
+
+                        {% elif proposal.status == 'PENDING' %}
+
+                            <span class="badge bg-warning text-dark">
+
+                                <i class="bi bi-clock"></i>
+                                Pending
+
+                            </span>
+
+                        {% elif proposal.status == 'ACCEPTED' %}
+
+                            <span class="badge bg-success">
+
+                                <i class="bi bi-check-circle"></i>
+                                Accepted
+
+                            </span>
+
+                        {% elif proposal.status == 'REJECTED' %}
+
+                            <span class="badge bg-danger">
+
+                                <i class="bi bi-x-circle"></i>
+                                Rejected
+
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <!-- Cover Letter -->
+
+                    <p class="text-muted">
+
+                        <i class="bi bi-chat-left-text"></i>
+
+                        {{ proposal.cover_letter|truncatewords:20 }}
+
+                    </p>
+
+                    <hr>
+
+
+                    <!-- Budget -->
+
+                    <div class="mb-3">
+
+                        <small class="text-muted">
+
+                            <i class="bi bi-cash-stack"></i>
+                            Proposed Budget
+
+                        </small>
+
+                        <h5 class="fw-bold mt-1">
+
+                            ₹{{ proposal.proposed_budget }}
+
+                        </h5>
+
+                    </div>
+
+
+                    <!-- Deadline -->
+
+                    <div>
+
+                        <small class="text-muted">
+
+                            <i class="bi bi-calendar-event"></i>
+                            Proposed Deadline
+
+                        </small>
+
+                        <p class="fw-bold mt-1 mb-0">
+
+                            {{ proposal.proposed_deadline }}
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- Submit Completed Work -->
+
+                    {% if proposal.status == 'ACCEPTED' and proposal.project.status == 'IN_PROGRESS' %}
+
+                        <div class="mt-4">
+
+                            <a href="{% url 'submit_work' proposal.project.id %}"
+                               class="btn btn-primary w-100">
+
+                                <i class="bi bi-cloud-arrow-up-fill me-1"></i>
+                                Submit Completed Work
+
+                            </a>
+
+                        </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <div class="col-12">
+
+            <div class="card feature-card shadow-sm border-0">
+
+                <div class="card-body text-center p-5">
+
+                    <i class="bi bi-file-earmark-x fs-1 text-muted"></i>
+
+                    <h4 class="mt-3">
+
+                        No Proposals Yet
+
+                    </h4>
+
+                    <p class="text-muted">
+
+                        You have not submitted any proposals yet.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

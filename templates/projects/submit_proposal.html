@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Submit Proposal - FreelanceHub
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <!-- Page Header -->
+
+        <div class="text-center mb-4">
+
+            <h2 class="fw-bold">
+
+                <i class="bi bi-send"></i>
+                Submit Proposal
+
+            </h2>
+
+            <p class="text-muted">
+
+                Send your proposal to the client for this project.
+
+            </p>
+
+        </div>
+
+
+        <!-- Project Information -->
+
+        <div class="card shadow-sm border-0 mb-4">
+
+            <div class="card-body p-4">
+
+                <span class="badge bg-primary mb-2">
+
+                    <i class="bi bi-folder"></i>
+                    {{ project.category }}
+
+                </span>
+
+                <h3 class="fw-bold">
+
+                    {{ project.title }}
+
+                </h3>
+
+                <p class="text-muted">
+
+                    {{ project.description }}
+
+                </p>
+
+                <hr>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <small class="text-muted">
+
+                            <i class="bi bi-cash-stack"></i>
+                            Client Budget
+
+                        </small>
+
+                        <h5 class="fw-bold mt-1">
+
+                            ₹{{ project.budget }}
+
+                        </h5>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <small class="text-muted">
+
+                            <i class="bi bi-calendar-event"></i>
+                            Client Deadline
+
+                        </small>
+
+                        <h5 class="fw-bold mt-1">
+
+                            {{ project.deadline }}
+
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Proposal Form -->
+
+        <div class="card shadow border-0">
+
+            <div class="card-body p-5">
+
+                <h4 class="fw-bold mb-4">
+
+                    <i class="bi bi-file-earmark-text"></i>
+                    Your Proposal
+
+                </h4>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <div class="d-flex justify-content-between mt-4">
+
+                        <a href="{% url 'project_detail' project.id %}"
+                           class="btn btn-outline-secondary">
+
+                            <i class="bi bi-arrow-left"></i>
+                            Cancel
+
+                        </a>
+
+                        <button type="submit"
+                                class="btn btn-primary">
+
+                            <i class="bi bi-send-fill"></i>
+                            Submit Proposal
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

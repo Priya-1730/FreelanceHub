@@ -1,0 +1,405 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+FreelanceHub - Find Work. Hire Talent.
+{% endblock %}
+
+{% block content %}
+
+<!-- ==================== HERO SECTION ==================== -->
+<section class="hero-section">
+
+    <div class="row align-items-center">
+
+        <!-- LEFT SIDE: HERO CONTENT -->
+        <div class="col-md-7">
+
+            <div class="hero-content">
+
+                <span class="hero-badge">
+                    <i class="bi bi-stars"></i>
+                    YOUR NEXT OPPORTUNITY STARTS HERE
+                </span>
+
+                <h1>
+                    Find Work.<br>
+                    <span>Build Your Future.</span>
+                </h1>
+
+                <p class="hero-description">
+                    FreelanceHub connects clients with skilled freelancers
+                    to build amazing projects together.
+                </p>
+
+                <!-- BUTTONS -->
+                <div class="hero-buttons">
+
+                    {% if user.is_authenticated %}
+
+                        {% if user.role == 'CLIENT' %}
+
+                            <a href="{% url 'create_project' %}"
+                               class="btn hero-btn-primary">
+                                Post a Project
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+
+                        {% elif user.role == 'FREELANCER' %}
+
+                            <a href="{% url 'project_list' %}"
+                               class="btn hero-btn-primary">
+                                Explore Projects
+                                <i class="bi bi-arrow-right ms-2"></i>
+                            </a>
+
+                        {% endif %}
+
+                    {% else %}
+
+                        <a href="{% url 'register' %}"
+                           class="btn hero-btn-primary">
+                            Get Started
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+
+                        <a href="{% url 'login' %}"
+                           class="btn hero-btn-secondary">
+                            Sign In
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- TRUST POINTS -->
+                <div class="hero-trust">
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Find opportunities
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Showcase your skills
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE: YOUR ORIGINAL IMAGE -->
+        <div class="col-md-5 text-center">
+
+            <div class="hero-card">
+
+                <img
+                    src="{% static 'images/hero.png' %}"
+                    alt="FreelanceHub Freelance Marketplace"
+                    class="hero-image"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DECORATIVE ELEMENTS -->
+    <div class="hero-decoration hero-decoration-one"></div>
+    <div class="hero-decoration hero-decoration-two"></div>
+
+</section>
+
+
+<!-- ==================== FEATURES SECTION ==================== -->
+<section class="features-section py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="section-badge">
+            OUR FEATURES
+        </span>
+
+        <h2 class="section-title mt-3">
+            Why Choose FreelanceHub?
+        </h2>
+
+        <p class="section-description">
+            Everything you need to connect, collaborate, and grow.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- FEATURE 1 -->
+        <div class="col-md-4">
+
+            <div class="feature-card h-100">
+
+                <div class="feature-icon">
+                    <i class="bi bi-briefcase"></i>
+                </div>
+
+                <h4>Find Projects</h4>
+
+                <p>
+                    Discover exciting projects that match your skills
+                    and build your freelance career.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- FEATURE 2 -->
+        <div class="col-md-4">
+
+            <div class="feature-card h-100">
+
+                <div class="feature-icon">
+                    <i class="bi bi-people"></i>
+                </div>
+
+                <h4>Hire Freelancers</h4>
+
+                <p>
+                    Connect with talented professionals and find
+                    the right people for your projects.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- FEATURE 3 -->
+        <div class="col-md-4">
+
+            <div class="feature-card h-100">
+
+                <div class="feature-icon">
+                    <i class="bi bi-graph-up-arrow"></i>
+                </div>
+
+                <h4>Grow Your Career</h4>
+
+                <p>
+                    Showcase your abilities, complete projects,
+                    and build your professional reputation.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== HOW IT WORKS SECTION ==================== -->
+<section class="how-it-works-section py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="section-badge">
+            SIMPLE PROCESS
+        </span>
+
+        <h2 class="section-title mt-3">
+            How FreelanceHub Works
+        </h2>
+
+        <p class="section-description">
+            Start your journey in three simple steps.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <!-- STEP 1 -->
+        <div class="col-md-4">
+
+            <div class="step-card text-center h-100">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h4>Create Your Account</h4>
+
+                <p>
+                    Register as a client or freelancer and
+                    create your account in minutes.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="col-md-4">
+
+            <div class="step-card text-center h-100">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h4>Connect and Collaborate</h4>
+
+                <p>
+                    Clients can post projects, while freelancers
+                    can explore projects and submit proposals.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="col-md-4">
+
+            <div class="step-card text-center h-100">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h4>Complete Your Projects</h4>
+
+                <p>
+                    Submit completed work and build lasting
+                    professional relationships.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== STATISTICS SECTION ==================== -->
+<section class="statistics-section py-5">
+
+    <div class="row g-4 text-center">
+
+        <!-- STATISTIC 1 -->
+        <div class="col-6 col-md-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+
+                <h3>Connect</h3>
+
+                <p>With Professionals</p>
+
+            </div>
+
+        </div>
+
+        <!-- STATISTIC 2 -->
+        <div class="col-6 col-md-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="bi bi-folder-fill"></i>
+                </div>
+
+                <h3>Discover</h3>
+
+                <p>New Projects</p>
+
+            </div>
+
+        </div>
+
+        <!-- STATISTIC 3 -->
+        <div class="col-6 col-md-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                </div>
+
+                <h3>Collaborate</h3>
+
+                <p>With Confidence</p>
+
+            </div>
+
+        </div>
+
+        <!-- STATISTIC 4 -->
+        <div class="col-6 col-md-3">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="bi bi-trophy-fill"></i>
+                </div>
+
+                <h3>Achieve</h3>
+
+                <p>Your Goals</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================== CALL TO ACTION SECTION ==================== -->
+<section class="cta-section text-center py-5">
+
+    <h2>Ready to Get Started?</h2>
+
+    <p>
+        Join FreelanceHub and take the next step in your professional journey.
+    </p>
+
+    {% if not user.is_authenticated %}
+
+        <a href="{% url 'register' %}"
+           class="btn hero-btn-primary mt-3">
+            Create Your Account
+            <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+
+    {% elif user.role == 'CLIENT' %}
+
+        <a href="{% url 'create_project' %}"
+           class="btn hero-btn-primary mt-3">
+            Post a Project
+            <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+
+    {% elif user.role == 'FREELANCER' %}
+
+        <a href="{% url 'project_list' %}"
+           class="btn hero-btn-primary mt-3">
+            Explore Projects
+            <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

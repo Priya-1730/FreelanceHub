@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ project.title }} - FreelanceHub
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-9">
+
+        <!-- Project Header -->
+
+        <div class="card shadow-sm border-0 mb-4">
+
+            <div class="card-body p-5">
+
+                <div class="d-flex justify-content-between align-items-start mb-3">
+
+                    <div>
+
+                        <span class="badge bg-primary mb-3">
+
+                            <i class="bi bi-folder"></i>
+                            {{ project.category }}
+
+                        </span>
+
+                        <h2 class="fw-bold mb-2">
+                            {{ project.title }}
+                        </h2>
+
+                        <p class="text-muted mb-0">
+                            Posted by {{ project.client.username }}
+                        </p>
+
+                    </div>
+
+
+                    <!-- Status -->
+
+                    <div>
+
+                        {% if project.status == 'OPEN' %}
+
+                            <span class="badge bg-success fs-6">
+
+                                <i class="bi bi-check-circle"></i>
+                                Open
+
+                            </span>
+
+                        {% elif project.status == 'IN_PROGRESS' %}
+
+                            <span class="badge bg-warning text-dark fs-6">
+
+                                <i class="bi bi-hourglass-split"></i>
+                                In Progress
+
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-secondary fs-6">
+
+                                <i class="bi bi-check2-all"></i>
+                                Completed
+
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Project Description -->
+
+        <div class="card shadow-sm border-0 mb-4">
+
+            <div class="card-body p-4">
+
+                <h4 class="fw-bold mb-3">
+
+                    <i class="bi bi-file-text"></i>
+                    Project Description
+
+                </h4>
+
+                <p class="text-muted mb-0">
+                    {{ project.description }}
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Project Information -->
+
+        <div class="card shadow-sm border-0 mb-4">
+
+            <div class="card-body p-4">
+
+                <h4 class="fw-bold mb-4">
+                    Project Information
+                </h4>
+
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+
+                        <div class="p-3 bg-light rounded">
+
+                            <small class="text-muted">
+
+                                <i class="bi bi-cash-stack"></i>
+                                Budget
+
+                            </small>
+
+                            <h5 class="fw-bold mt-2 mb-0">
+                                ₹{{ project.budget }}
+                            </h5>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+                        <div class="p-3 bg-light rounded">
+
+                            <small class="text-muted">
+
+                                <i class="bi bi-calendar-event"></i>
+                                Deadline
+
+                            </small>
+
+                            <h5 class="fw-bold mt-2 mb-0">
+                                {{ project.deadline }}
+                            </h5>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Actions -->
+
+        <div class="d-flex justify-content-between">
+
+            <a href="{% url 'project_list' %}"
+               class="btn btn-outline-secondary">
+
+                <i class="bi bi-arrow-left"></i>
+                Back to Projects
+
+            </a>
+
+
+            {% if project.status == 'OPEN' %}
+
+                <a href="{% url 'submit_proposal' project.id %}"
+                   class="btn btn-primary btn-lg">
+
+                    <i class="bi bi-send"></i>
+                    Submit Proposal
+
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

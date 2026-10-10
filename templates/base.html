@@ -1,0 +1,213 @@
+{% load django_bootstrap5 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+     <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}
+        FreelanceHub
+        {% endblock %}
+    </title>
+
+    {% bootstrap_css %}
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <div class="container">
+
+        <a class="navbar-brand"
+           href="{% url 'home' %}">
+            FreelanceHub
+        </a>
+
+        <div>
+
+            {% if user.is_authenticated %}
+
+                {% if user.role == 'CLIENT' %}
+
+                    <a href="{% url 'client_dashboard' %}"
+                       class="btn btn-outline-light me-2">
+                        Dashboard
+                    </a>
+
+                {% elif user.role == 'FREELANCER' %}
+
+                    <a href="{% url 'freelancer_dashboard' %}"
+                       class="btn btn-outline-light me-2">
+                        Dashboard
+                    </a>
+
+                {% endif %}
+
+
+                <!-- Profile -->
+
+                <a href="{% url 'profile' %}"
+                   class="btn btn-outline-light me-2">
+                    Profile
+                </a>
+
+
+                <!-- Logout -->
+
+                <a href="{% url 'logout' %}"
+                   class="btn btn-danger">
+                    Logout
+                </a>
+
+
+            {% else %}
+
+                <!-- Login -->
+
+                <a href="{% url 'login' %}"
+                   class="btn btn-outline-light me-2">
+                    Login
+                </a>
+
+
+                <!-- Register -->
+
+                <a href="{% url 'register' %}"
+                   class="btn btn-primary">
+                    Register
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+    <!-- Main Content -->
+
+    <main class="container mt-4">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+<footer class="footer mt-5">
+    <div class="container py-5">
+
+        <div class="row">
+
+            <!-- Brand -->
+            <div class="col-md-5 mb-4">
+                <h4 class="footer-brand">
+                    <i class="bi bi-briefcase-fill"></i>
+                    FreelanceHub
+                </h4>
+
+                <p class="footer-text">
+                    Connect with talented freelancers and find the
+                    right projects to bring your ideas to life.
+                </p>
+
+                <!-- Social Icons -->
+                <div class="social-icons">
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                </div>
+            </div>
+
+
+            <!-- Quick Links -->
+            <div class="col-md-3 mb-4">
+                <h5>Quick Links</h5>
+
+                <ul class="footer-links">
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+
+                        <li>
+                            <a href="{% url 'profile' %}">Profile</a>
+                        </li>
+
+                    {% else %}
+
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'register' %}">Register</a>
+                        </li>
+
+                    {% endif %}
+                </ul>
+            </div>
+
+
+            <!-- Contact -->
+            <div class="col-md-4 mb-4">
+                <h5>Connect With Us</h5>
+
+                <p class="footer-contact">
+                    <i class="bi bi-envelope-fill"></i>
+                    support@freelancehub.com
+                </p>
+
+                <p class="footer-contact">
+                    <i class="bi bi-globe2"></i>
+                    www.freelancehub.com
+                </p>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center footer-bottom">
+            <p class="mb-0">
+                © 2026 FreelanceHub. All Rights Reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>
+    {% bootstrap_javascript %}
+
+</body>
+
+</html>

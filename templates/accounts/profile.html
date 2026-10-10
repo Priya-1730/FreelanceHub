@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Profile - FreelanceHub
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <div class="card feature-card shadow-sm border-0">
+
+            <div class="card-body p-5">
+
+                <!-- Profile Header -->
+
+                <div class="text-center">
+
+                    <div class="profile-icon">
+
+                        <i class="bi bi-person-circle"></i>
+
+                    </div>
+
+                    <h2 class="mt-3 fw-bold">
+                        {{ user.username }}
+                    </h2>
+
+                    <span class="badge bg-primary">
+                        {{ user.get_role_display }}
+                    </span>
+
+                </div>
+
+
+                <hr class="my-4">
+
+
+                <!-- Profile Information -->
+
+                <div class="row g-4">
+
+                    <!-- Email -->
+
+                    <div class="col-md-6">
+
+                        <div class="p-3 bg-light rounded">
+
+                            <h6 class="text-muted">
+
+                                <i class="bi bi-envelope"></i>
+                                Email
+
+                            </h6>
+
+                            <p class="mb-0">
+                                {{ user.email }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Member Since -->
+
+                    <div class="col-md-6">
+
+                        <div class="p-3 bg-light rounded">
+
+                            <h6 class="text-muted">
+
+                                <i class="bi bi-calendar3"></i>
+                                Member Since
+
+                            </h6>
+
+                            <p class="mb-0">
+                                {{ user.date_joined|date:"d M Y" }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Bio -->
+
+                    <div class="col-12">
+
+                        <div class="p-3 bg-light rounded">
+
+                            <h6 class="text-muted">
+
+                                <i class="bi bi-person-lines-fill"></i>
+                                Bio
+
+                            </h6>
+
+                            <p class="mb-0">
+
+                                {% if user.bio %}
+                                    {{ user.bio }}
+                                {% else %}
+                                    No bio added yet.
+                                {% endif %}
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                   {% if user.role == 'FREELANCER' %}
+
+    <!-- Skills -->
+
+    <div class="col-12">
+
+        <div class="p-3 bg-light rounded">
+
+            <h6 class="text-muted">
+
+                <i class="bi bi-tools"></i>
+                Skills
+
+            </h6>
+
+            <p class="mb-0">
+
+                {% if user.skills %}
+                    {{ user.skills }}
+                {% else %}
+                    No skills added yet.
+                {% endif %}
+
+            </p>
+
+        </div>
+
+    </div>
+
+{% endif %}
+
+                <!-- Edit Button -->
+
+                <div class="text-center mt-4">
+
+                    <a href="{% url 'edit_profile' %}"
+                       class="btn btn-primary">
+
+                        <i class="bi bi-pencil"></i>
+                        Edit Profile
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
